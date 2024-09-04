@@ -16,13 +16,17 @@ class NewsListViewBuilder extends StatefulWidget {
 
 class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
   var future;
+  @override
   void initState() {
     super.initState();
     future = NewsService(Dio()).getNews(category: widget.category);
   }
 
   @override
-  void dispose() {}
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<ArticleModel>>(
@@ -32,12 +36,10 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
             return NewsListView(articles: snapshot.data!);
           } else if (snapshot.hasError) {
             return SliverToBoxAdapter(
-              child: Center(
-                  child: Image.asset('assets/photo_2024-08-24_12-40-44.jpg')),
+              child: Center(child: Image.asset('assets/photo_2024-08-24_12-40-44.jpg')),
             );
           } else {
-            return SliverToBoxAdapter(
-                child: Center(child: CircularProgressIndicator()));
+            return const SliverToBoxAdapter(child: Center(child: CircularProgressIndicator()));
           }
         });
 

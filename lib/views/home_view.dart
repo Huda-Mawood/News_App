@@ -19,24 +19,22 @@ class HomeView extends StatelessWidget {
         //لونها شفاف لون الصفحة
 
         backgroundColor: Colors.transparent,
-        title: Row(
+        title: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
+            Text(
               "News",
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
             ),
-            const Text(
+            Text(
               "Cloud",
-              style:
-                  TextStyle(color: Colors.orange, fontWeight: FontWeight.bold),
+              style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold),
             ),
           ],
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16),
         child: CustomScrollView(
           physics: BouncingScrollPhysics(),
           // كل الي بتاخده من نوع slivers بديل لكلمة children

@@ -3,7 +3,7 @@ import 'package:news_app/model/category_model.dart';
 import 'package:news_app/views/category_views.dart';
 
 class CategoryCard extends StatelessWidget {
-  const CategoryCard({required this.category});
+  const CategoryCard({super.key, required this.category});
   final CategoryModel category;
 
   @override
@@ -17,20 +17,18 @@ class CategoryCard extends StatelessWidget {
         }));
       },
       child: Padding(
-        padding: EdgeInsets.only(right: 12),
+        padding: const EdgeInsets.only(right: 12),
         child: Container(
           height: 120,
           width: 190,
           decoration: BoxDecoration(
-            image: DecorationImage(
-                fit: BoxFit.fill, image: AssetImage(category.image)),
+            image: DecorationImage(fit: BoxFit.fill, image: AssetImage(category.image)),
             borderRadius: BorderRadius.circular(14),
           ),
           child: Center(
               child: Text(
             category.categoryName,
-            style: TextStyle(
-                color: Colors.white, fontSize: 18, fontWeight: FontWeight.w400),
+            style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w400),
           )),
         ),
       ),
